@@ -1,11 +1,15 @@
 ﻿# FactLens
 
-Verify NLP explanations against trusted knowledge sources (textbooks and research papers).
+Verify NLP explanations against trusted knowledge sources.
 
-**Status:** Early scaffold â€” NLP domain v1.
+## Pipeline (in progress)
 
-## Planned pipeline
+| Stage | Module | Status |
+|-------|--------|--------|
+| 1 | `pipeline/linguistic.py` | Done |
+| 2 | Retrieval | Planned |
+| 3 | NLI evaluation | Planned |
 
-1. Linguistic analysis (spaCy)
-2. Dense retrieval (FAISS)
-3. NLI evaluation (cross-encoder)
+## Knowledge base
+
+Place textbook PDFs in `data/raw/books/` (local only). Download open-access papers with `scripts/download_papers.py`, then build the index with `python -m knowledge_base.build_kb`.
