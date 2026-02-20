@@ -1,10 +1,9 @@
 ﻿spacy>=3.7.0
-numpy>=1.26.0
-nltk>=3.8.0
-tqdm>=4.66.0
-requests>=2.31.0
+# Install transformer model separately:
+#   python -m spacy download en_core_web_trf
 
 docling>=2.0.0
+
 sentence-transformers>=3.0.0
 faiss-cpu>=1.8.0
 
@@ -12,5 +11,13 @@ torch>=2.2.0
 transformers>=4.40.0
 bert-score>=0.3.13
 
+numpy>=1.26.0
+nltk>=3.8.0
+tqdm>=4.66.0
+requests>=2.31.0
+
 streamlit>=1.35.0
 plotly>=5.22.0
+
+pytest>=8.0.0
+pytest-cov>=5.0.0
