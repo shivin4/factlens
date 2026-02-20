@@ -1,4 +1,24 @@
-﻿venv/
+﻿# Python
+venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.coverage
+.env
+.env.*
+
+# Copyrighted / large local data
+data/raw/books/*
+!data/raw/books/README.md
+data/raw/papers/*.pdf
+data/processed/
+
+# Built knowledge base (rebuild locally or from release)
+knowledge_base/faiss_index/
+knowledge_base/metadata.db
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
