@@ -8,6 +8,7 @@ __pycache__/
 .env.*
 
 # Copyrighted / large local data
+data/_local_backup/
 data/raw/books/*
 !data/raw/books/README.md
 data/raw/papers/*.pdf
@@ -19,6 +20,8 @@ knowledge_base/metadata.db
 
 # Local-only docs (not published)
 DEPLOY.md
+.streamlit/secrets.toml
+demo-kb-papers.zip
 
 # IDE / OS
 .idea/
