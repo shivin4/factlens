@@ -1,3 +1,4 @@
 # Local knowledge-base build only (PDF extraction). Not installed on Streamlit Cloud.
 -r requirements.txt
 docling>=2.0.0
+bert-score>=0.3.13

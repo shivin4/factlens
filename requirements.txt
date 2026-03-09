@@ -8,10 +8,12 @@ en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en
 sentence-transformers>=3.0.0
 faiss-cpu>=1.8.0
 
-torch>=2.2.0
-torchvision>=0.17.0
-transformers>=4.40.0
-bert-score>=0.3.13
+# CPU wheels for Streamlit Cloud (torchvision required by transformers vision stubs)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
+torchvision==0.17.2
+
+# Optional locally for BERTScore toggle: pip install bert-score
 
 nltk>=3.8.0
 tqdm>=4.66.0

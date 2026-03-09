@@ -17,8 +17,8 @@ sys.path.insert(0, str(ROOT))
 
 from knowledge_base.bootstrap import ensure_knowledge_base
 
-from pipeline.runner import run_pipeline, FactLensResult, run_ablation_study
-from pipeline.scoring import interpret_score
+# Pipeline imported lazily on Analyze — avoids loading torch/transformers at startup
+# (reduces Streamlit file-watcher noise on Community Cloud).
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Page config
@@ -272,6 +272,8 @@ with col_hint:
 # Pipeline execution
 # ──────────────────────────────────────────────────────────────────────────────
 if analyze_clicked and user_text.strip():
+    from pipeline.runner import run_pipeline, FactLensResult, run_ablation_study
+
     with st.spinner("🔬 Analyzing your explanation…"):
         try:
             result: FactLensResult = run_pipeline(
@@ -298,6 +300,9 @@ if analyze_clicked and user_text.strip():
 # ── Render results if available ────────────────────────────────────────────────
 
 if "result" in st.session_state:
+    from pipeline.runner import FactLensResult
+    from pipeline.scoring import interpret_score
+
     result: FactLensResult = st.session_state["result"]
     scores = result.scoring.sub_scores
     label, label_color = result.score_label()
