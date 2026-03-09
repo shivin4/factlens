@@ -1,6 +1,6 @@
 ﻿spacy>=3.7.0
-# Install transformer model separately:
-#   python -m spacy download en_core_web_trf
+# spaCy model (pip). Do NOT put this in packages.txt — that file is for apt packages on Streamlit Cloud.
+en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3-py3-none-any.whl
 
 docling>=2.0.0
 
