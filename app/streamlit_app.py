@@ -30,9 +30,14 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Cloud deploy: pull pre-built papers-only KB from GitHub Release (DEMO_KB_URL secret)
+# Cloud deploy: download KB once per server process (not per visitor click)
+@st.cache_resource
+def _init_knowledge_base() -> bool:
+    return ensure_knowledge_base()
+
+
 with st.spinner("Checking knowledge base..."):
-    ensure_knowledge_base()
+    _init_knowledge_base()
 
 # ──────────────────────────────────────────────────────────────────────────────
 # CSS
