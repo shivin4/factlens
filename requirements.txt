@@ -1,8 +1,9 @@
-﻿spacy>=3.7.0
-# spaCy model (pip). Do NOT put this in packages.txt — that file is for apt packages on Streamlit Cloud.
-en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3-py3-none-any.whl
+﻿# Runtime + Streamlit Cloud (use Python 3.11 — see runtime.txt)
+# NumPy 2.x breaks spaCy/thinc on many platforms; keep 1.x.
+numpy>=1.26.0,<2.0.0
 
-docling>=2.0.0
+spacy==3.7.5
+en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3-py3-none-any.whl
 
 sentence-transformers>=3.0.0
 faiss-cpu>=1.8.0
@@ -11,7 +12,6 @@ torch>=2.2.0
 transformers>=4.40.0
 bert-score>=0.3.13
 
-numpy>=1.26.0
 nltk>=3.8.0
 tqdm>=4.66.0
 requests>=2.31.0

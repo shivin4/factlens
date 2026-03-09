@@ -85,28 +85,24 @@ venv\Scripts\activate       # Windows
 
 ```bash
 pip install -r requirements.txt
+# For building the knowledge base from PDFs (includes Docling):
+pip install -r requirements-build.txt
 ```
 
-### 3. Download spaCy model
-
-```bash
-python -m spacy download en_core_web_trf
-```
-
-### 4. Add textbook PDFs
+### 3. Add textbook PDFs
 
 Copy your textbook PDFs into:
 ```
 data/raw/books/
 ```
 
-### 5. Download research papers
+### 4. Download research papers
 
 ```bash
 python scripts/download_papers.py
 ```
 
-### 6. Build the knowledge base
+### 5. Build the knowledge base
 
 ```bash
 python -m knowledge_base.build_kb
@@ -115,7 +111,7 @@ python -m knowledge_base.build_kb
 
 > ⏱️ First build takes 5–15 minutes depending on PDF length and hardware. One-time only.
 
-### 7. Launch the app
+### 6. Launch the app
 
 ```bash
 streamlit run app/streamlit_app.py
@@ -174,7 +170,7 @@ This avoids the memory overhead and `std::bad_alloc` issues common with heavy vi
 
 ## Requirements
 
-- Python 3.10+
+- Python 3.10–3.12 locally; **3.11** recommended for Streamlit Cloud (`runtime.txt`)
 - CUDA GPU recommended (RTX 4000+ / 16GB VRAM ideal)
   - Works on CPU but evaluation is significantly slower (~2–5 min/query)
 
