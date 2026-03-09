@@ -15,6 +15,8 @@ import streamlit as st
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from knowledge_base.bootstrap import ensure_knowledge_base
+
 from pipeline.runner import run_pipeline, FactLensResult, run_ablation_study
 from pipeline.scoring import interpret_score
 
@@ -27,6 +29,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Cloud deploy: pull pre-built papers-only KB from GitHub Release (DEMO_KB_URL secret)
+with st.spinner("Checking knowledge base..."):
+    ensure_knowledge_base()
 
 # ──────────────────────────────────────────────────────────────────────────────
 # CSS
@@ -188,7 +194,7 @@ with st.sidebar:
     st.markdown("---")
 
     top_k = st.slider("Chunks retrieved per claim", min_value=1, max_value=10, value=5)
-    use_bertscore = st.toggle("Enable BERTScore (slower, more accurate)", value=True)
+    use_bertscore = st.toggle("Enable BERTScore (slower, more accurate)", value=False)
 
     st.markdown("---")
     st.markdown("## 📚 Knowledge Base")
