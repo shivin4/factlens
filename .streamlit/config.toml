@@ -1,5 +1,7 @@
 [server]
 headless = true
+# Avoid scanning transformers vision submodules (needs torchvision) on every reload
+fileWatcherType = "none"
 
 [browser]
 gatherUsageStats = false
