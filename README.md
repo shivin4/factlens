@@ -182,4 +182,4 @@ This avoids the memory overhead and `std::bad_alloc` issues common with heavy vi
 
 ## Data & GitHub
 
-Textbook PDFs and built indexes are **not** committed (see `.gitignore`). Open-access papers are fetched via `scripts/download_papers.py`. For deployment and a papers-only public demo, see **[DEPLOY.md](DEPLOY.md)**.
+Textbook PDFs and built indexes are **not** committed (see `.gitignore`). Open-access papers are fetched via `scripts/download_papers.py`.
