@@ -17,6 +17,9 @@ data/processed/
 knowledge_base/faiss_index/
 knowledge_base/metadata.db
 
+# Local-only docs (not published)
+DEPLOY.md
+
 # IDE / OS
 .idea/
 .vscode/
